@@ -17,7 +17,6 @@ public class QuestionBank {
         System.out.println(categories.get(index).getNextQuestion());
     }
 
-    // To add a new category
     public void addCategory(String name, int numQuestions) {
         categories.add(new QuestionCategory(name, numQuestions));
     }
@@ -28,6 +27,4 @@ public class QuestionBank {
         categories.add(new QuestionCategory("Sports", 50));
         categories.add(new QuestionCategory("Rock", 50));
     }
-
-
 }

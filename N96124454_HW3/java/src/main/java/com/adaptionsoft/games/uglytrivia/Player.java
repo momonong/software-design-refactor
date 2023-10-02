@@ -18,8 +18,8 @@ public class Player {
         return position;
     }
 
-    public void move(int places) {
-        this.position = ((this.position)+places) % 12;
+    public void move(int roll, int mapSize) {
+        this.position = ((this.position)+roll) % mapSize;
     }
 
     public int getCoins() {
@@ -38,7 +38,7 @@ public class Player {
         this.inPenaltyBox = true;
     }
 
-    public void getOutOfPenaltyBox() {
+    public void leavePenaltyBox() {
         this.inPenaltyBox = false;
     }
 }

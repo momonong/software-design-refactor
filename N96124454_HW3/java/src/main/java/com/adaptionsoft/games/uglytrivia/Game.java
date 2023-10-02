@@ -6,11 +6,12 @@ public class Game {
     private ArrayList<Player> players = new ArrayList<Player>();
     private static final int MIN_PLAYERS = 2;
     private static final int MAX_PLAYERS = 6;
+	private static final int MAP_SIZE = 12;
     
     private QuestionBank questionBank = new QuestionBank();
     
-    int currentPlayer = 0;
-    boolean isGettingOutOfPenaltyBox;
+    private int currentPlayer = 0;
+    private boolean isGettingOutOfPenaltyBox;
     
     public Game() {
         questionBank.initializeQuestions();
@@ -39,16 +40,16 @@ public class Game {
         if (player.isInPenaltyBox()) {
             if (roll % 2 != 0) {
                 isGettingOutOfPenaltyBox = true;
-				player.getOutOfPenaltyBox();
+				player.leavePenaltyBox();
                 System.out.println(player.getName() + " is getting out of the penalty box");
-                player.move(roll);
+                player.move(roll, MAP_SIZE);
 				displayPlayerPosition(player);
             } else {
                 System.out.println(player.getName() + " is not getting out of the penalty box");
                 isGettingOutOfPenaltyBox = false;
             }
         } else {
-            player.move(roll);
+            player.move(roll, MAP_SIZE);
 			displayPlayerPosition(player);
         }
     }
